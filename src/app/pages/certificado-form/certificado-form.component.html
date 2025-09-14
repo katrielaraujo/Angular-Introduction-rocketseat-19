@@ -8,15 +8,19 @@
 
     <h2>Novo certificado</h2>
 
-    <div class="mb-3">
+    <div class="mb-3 custom-input-group">
       <label class="form-label">Nome</label>
-      <input type="text" class="form-control custom-input" placeholder="Nome do aluno">
+      <input type="text" class="form-control custom-input" placeholder="Nome do aluno" id="nome">
+      <div class="error-message d-flex align-items-center">
+        <i class="ph ph-warning-circle"></i>
+        <p class="m-0">Error message</p>
+      </div>
     </div>
 
-    <div class="mb-3 d-flex align-items-end">
+    <div class="mb-3 d-flex align-items-end custom-input-group">
       <div class="flex-grow-1 me-2">
-        <label class="form-label">Atividade</label>
-        <input type="text" class="form-control custom-input" placeholder="Atividade exercida">
+        <label for="atividade" class="form-label">Atividade</label>
+        <input id="atividade" type="text" class="form-control custom-input" placeholder="Atividade exercida">
       </div>
       <app-secondary-button></app-secondary-button>
     </div>
