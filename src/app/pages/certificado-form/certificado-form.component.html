@@ -10,7 +10,7 @@
 
     <div class="mb-3 custom-input-group">
       <label [ngClass]="{'text-danger-label': campoInvalido(nomeRef)}" class="form-label">Nome</label>
-      <input [(ngModel)]="nome" name="nome" #nomeRef="ngModel" maxlength="150" required type="text" class="form-control custom-input" placeholder="Nome do aluno" id="nome">
+      <input [(ngModel)]="certificado.nome" name="nome" #nomeRef="ngModel" maxlength="150" required type="text" class="form-control custom-input" placeholder="Nome do aluno" id="nome">
 
       @if (campoInvalido(nomeRef)) {
           <div class="error-message d-flex align-items-center">
@@ -40,7 +40,7 @@
       <label class="form-label">Lista de atividades</label>
 
       <div class="item-list w-100">
-        @for (atividade of atividades; track $index) {
+        @for (atividade of certificado.atividades; track $index) {
           <div class="item">
             <span class="item-text">{{ atividade }}</span>
 
@@ -48,7 +48,7 @@
               <i class="ph-bold ph-x"></i>
             </div>
           </div>
-          @if ($index + 1 != atividades.length) {
+          @if ($index + 1 != certificado.atividades.length) {
             <hr>
           }
 
@@ -58,7 +58,7 @@
 
     </div>
 
-    <app-primary-button [disabled]="!formValido()" textoBotao="Gerar Certificado"></app-primary-button>
+    <app-primary-button (click)="submit()" [disabled]="!formValido()" textoBotao="Gerar Certificado"></app-primary-button>
 
   </div>
 
