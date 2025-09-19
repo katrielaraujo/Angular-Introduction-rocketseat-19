@@ -3,6 +3,7 @@ import { ItemCertificadoComponent } from '../../_components/item-certificado/ite
 import { SecondaryButtonComponent } from '../../_components/secondary-button/secondary-button.component';
 import { Router, RouterLink } from '@angular/router';
 import { CertificadoService } from '../../_services/certificado.service';
+import { Certificado } from '../../Interfaces/certificado';
 
 @Component({
   selector: 'app-certificados',
@@ -11,9 +12,13 @@ import { CertificadoService } from '../../_services/certificado.service';
   styleUrl: './certificados.component.css'
 })
 export class CertificadosComponent implements OnInit {
+
+  certificados: Certificado[] = [];
+
   constructor(private certificadoService: CertificadoService) {}
 
   ngOnInit() {
-    console.log(this.certificadoService.certificados);
+    this.certificados = this.certificadoService.certificados;
+    console.log(this.certificados);
   }
 }
